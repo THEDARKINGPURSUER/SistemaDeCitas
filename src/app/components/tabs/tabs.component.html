@@ -1,0 +1,44 @@
+<div class="navegacion">
+<mat-toolbar class="navColor">
+  <button mat-icon-button mat-button (click)="drawer.toggle()" class="example-icon icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <div>
+  <img src="https://siscolsi.com.co/img/logo.png" alt="" class="logo">
+  </div>
+  <h1 (ngModel)="mensaje" class="title"> {{mensaje}} </h1>
+</mat-toolbar>
+</div>
+
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side"  >
+   <!-- <input type="checkbox" name="" id="" placeholder="lhiud" checked #selectAfterAdding class="mat-checkbox">-->
+    <button mat-raised-button
+    class="example-add-tab-button button"
+    (click)="addTab(true, 'Formulario', '')">
+    Formulario
+    </button> 
+    <button mat-raised-button 
+    class="example-add-tab-button button"
+    (click)="addTab(true, 'Agenda', '')" ><!--*ngFor="let clientes of Clientes; let index = index"-->
+     Agenda
+    </button> 
+  </mat-drawer>
+</mat-drawer-container>
+
+  <mat-tab-group [selectedIndex]="selected.value" selectedIndex="ho"
+                 (selectedIndexChange)="selected.setValue($event)" 
+                 (selectedTabChange)="cambioTexto($event)" class="nav-group">
+                 
+    <mat-tab *ngFor="let tab of tabs; let index = index"  [label]="tab.ventana">
+      <ng-template mat-tab-label >
+        <span>{{tab.ventana}}</span>
+        
+        <button class="Delete"
+        [disabled]="tabs.length === 1"
+        (click)="removeTab(index)"><mat-icon aria-hidden="false" aria-label="Example home icon">cancel</mat-icon></button>
+      </ng-template><br>
+     <!--<p> Contenido ubicado en <span class="span">{{tab.ventana}}</span> </p>-->
+    <ng-container *ngComponentOutlet="tab.selector" ></ng-container>
+    </mat-tab>
+  </mat-tab-group>

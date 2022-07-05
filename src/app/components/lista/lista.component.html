@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="titulo_tabla">
+    <h1>Agenda de citas</h1>
+  </div>
+  <mat-form-field appearance="standard">
+    <mat-label>Buscar en la tabla</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ingrese los datos de la busqueda" #input>
+  </mat-form-field>
+  <div class="table-container" id="table">
+    <table mat-table [dataSource]="dataSource" class="tabla" >
+
+      <ng-container matColumnDef="Opciones" class="columnas">
+        <th *matHeaderCellDef class="sticky">Opciones</th>
+        <td *matCellDef="let element"class="sticky sticky2"> <img src="../../../assets/img/editar.png" class="editarImg" [routerLink]="['/form', element.idcitas]">
+           <img src="../../../assets/img/eliminar.png" class="editarImg" (click)="deletePersona(element.idcitas)"> </td>
+      </ng-container>
+
+      <ng-container matColumnDef="fecha" class="columnas">
+        <th  *matHeaderCellDef>Fecha</th>
+        <td *matCellDef="let element"> {{element.diacita}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Nombre" class="columnas">
+        <th  *matHeaderCellDef>Nombres</th>
+        <td *matCellDef="let element"> {{element.nombre}} {{element.apellido}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Identificacion" class="columnas">
+        <th *matHeaderCellDef>Identificación</th>
+        <td *matCellDef="let element"> {{element.identificacion}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Hora" class="columnas">
+        <th *matHeaderCellDef>Hora</th>
+        <td *matCellDef="let element"> {{element.horacita}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="atencion" class="columnas">
+        <th *matHeaderCellDef>Atencion</th>
+        <td *matCellDef="let element"> {{element.atencion}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="observaciones" class="columnas">
+        <th *matHeaderCellDef>Observaciones</th>
+        <td *matCellDef="let element"> {{element.observaciones}} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <div class="conButton">
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No hay concidencias para "{{input.value}}"</td>
+        </tr>
+    </div>
+    </table>
+  </div>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements"></mat-paginator>  
+
+
+<div class="conButton">
+  <button (click)="previus()" class="botonPrevius">Previus</button>
+  <button (click)="next()" class="botonNext">Next</button>
+</div>
+</div>

@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+mat-tab-group {
+    margin-bottom: 48px;
+}
+.example-container {
+    height: 100%;
+    position: fixed;
+    z-index: 90;
+    -webkit-box-shadow: 0 3px 10px 1px #999999;
+    box-shadow: 0 3px 10px 1px #999999;
+    margin-top: 50px;
+    overflow: hidden;
+}
+  
+.example-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+  
+.example-sidenav {
+    padding: 30px;
+    background-color: none;
+
+}
+
+.navegacion{
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+}
+.nav-group{
+    padding-top: 66px;    
+}
+
+
+.button {
+    margin: 10px;
+    width: 90%;
+    border-color: #f1c40f;
+    color: black;
+    background-image: -webkit-linear-gradient(45deg, #f1c40f 50%, transparent 50%);
+    background-image: linear-gradient(45deg, #f1c40f 50%, transparent 50%);
+    background-position: 100%;
+    background-size: 400%;
+    -webkit-transition: background 300ms ease-in-out;
+    transition: background 300ms ease-in-out;
+  }
+.button:hover {
+    background-position: 0;
+}
+
+.navColor{
+    background-color: white;
+    color: black;
+    -webkit-box-shadow: 0 1px 10px 1px #999999;
+    box-shadow: 0 1px 10px 1px #999999;
+}
+.Delete:hover{
+    color: rgb(255, 0, 0);
+}
+
+.Delete{
+    margin-left: auto;
+    margin-right: 0;
+    padding: 0;
+    border-radius: 50%;
+    color: #373737;
+    border: none;
+    background: none;
+}
+.title{
+    color: rgb(123, 121, 121);
+    font-size: 30px;
+    font-family: 'Bebas Neue', cursive;
+    margin-left: auto;
+    margin-right: 10px;
+    transition: all 300ms;
+}
+
+.title{
+    color: rgb(123, 121, 121);
+    font-size: 30px;
+    font-family: 'Bebas Neue', cursive;
+    margin-left: auto;
+    margin-right: 10px;
+    transition: all 300ms;
+}
+.logo{
+    margin-top: 5px;
+    margin-right: 10px;
+    transition: all 300ms;
+}
+@media screen and (max-width: 600px) {
+    .logo{
+        width: 110px;
+    }
+    .title{
+        font-size: 20px;
+    }
+}
+@media screen and (max-width: 170px) {
+    .logo{
+        width: 70px;
+    }
+    .title{
+        display: none;
+    }
+}
+.icon{
+    margin-right: 10px;
+    transition: all 500ms;
+}
+.icon:hover{
+    transition: all 500ms;
+    -moz-transform: scale(1.1) rotate(360deg);
+    -webkit-transform: scale(1.1) rotate(360deg);
+    -o-transform: scale(1.1) rotate(360deg);
+    -ms-transform: scale(1.1) rotate(360deg);
+    transform: scale(1.1) rotate(360deg);
+}

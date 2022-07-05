@@ -1,0 +1,176 @@
+<div class="container__principal">
+    <div class="card__container">
+        <div class="container__encabezado">
+            <div class="encabezado">
+                <div class="titulo">
+                    <h1>Formulario de cita</h1>
+                </div>
+                <div class="parrafo">
+                    <p>Si desea concertar una cita de consulta, complete este formulario, ingrese los datos del paciente y los datos del servicio.</p>
+                </div>
+                <div class="linea">
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div class="container__formulario">
+            <div class="form__con">
+                <form [formGroup]="contactForm" (ngSubmit)="savePersona()">
+                    <div class="paneles">
+                        <div class="label__con">
+                            <label for="">Identificación</label>
+                        </div>
+                        <div class="input__con">
+                            <input type="text" formControlName="identificacion" placeholder="Numero de identificacion" class="input_pequeños" >
+                            <div class="alert-error" *ngIf="identificacion.invalid && (identificacion.dirty || identificacion.touched)">
+                                <div class="error" *ngIf="identificacion.errors.required"><p>El numero de identificacion es requerido*</p></div>
+                                <div class="error" *ngIf="identificacion.errors.minlength"><p>Se Requieren minimo 5 caracteres*</p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="paneles">
+                        <div class="label__con">
+                            <label for="">Día de la cita</label>
+                        </div>
+                        <div class="input__con">
+                            <input type="date" formControlName="diaCita"   class="input_pequeños">
+                            <div class="alert-error" *ngIf="diaCita.invalid && (diaCita.dirty || diaCita.touched)">
+                                <div class="error" *ngIf="diaCita.errors.required"><p>El campo es requerido*</p></div>
+                                <div class="error" *ngIf="diaCita.errors.minlength"><p>Se Requieren minimo 5 caracteres*</p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="paneles">
+                        <div class="label__con">
+                            <label for="">Hora de la cita</label>
+                        </div>
+                        <div class="input__con">
+                            <input type="time" formControlName="horaCita" id="" class="input_pequeños">
+                            <div class="alert-error" *ngIf="horaCita.invalid && (horaCita.dirty || horaCita.touched)">
+                                <div class="error" *ngIf="horaCita.errors.required"><p>El campo es requerido*</p></div>
+                                <div class="error" *ngIf="horaCita.errors.minlength"><p>Se Requieren minimo 5 caracteres*</p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="paneles">
+                        <div class="label__con">
+                            <label for="">Nombre</label>
+                        </div>
+                        <div class="input__con">
+                            <input type="text" formControlName="nombre"  placeholder="Nombre" class="input_pequeños">
+                            <div class="alert-error nombre" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                                <div class="error" *ngIf="nombre.errors.required"><p>El campo es requerido*</p></div>
+                                <div class="error" *ngIf="nombre.errors.minlength"><p>Se Requieren minimo 2 caracteres*</p></div>
+                            </div>
+                            <input type="text" formControlName="apellido"  placeholder="Apellido" class="input_segundarios input_pequeños">
+                            <div class="alert-error apellido" *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
+                                <div class="error" *ngIf="apellido.errors.required"><p>El campo es requerido*</p></div>
+                                <div class="error" *ngIf="apellido.errors.minlength"><p>Se Requieren minimo 2 caracteres*</p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="paneles">
+                        <div class="label__con">
+                            <label for="">Telefono</label>
+                        </div>
+                        <div class="input__con">
+                            <input type="text" formControlName="telefono" placeholder="Numero de Telefono" class="input_pequeños">
+                        </div>
+                    </div>
+                    <div class="paneles">
+                        <div class="label__con">
+                            <label for="">Email</label>
+                        </div>
+                        <div class="input__con">
+                            <input type="text" formControlName="email" placeholder="Correo electronico" class="direccion">
+                            <div class="alert-error" *ngIf="email.invalid && (email.dirty || email.touched)">
+                                <div class="error" *ngIf="(email.dirty || email.touched) &&
+                                email.invalid && email.errors.pattern"><p>Los campos no coinciden con el tipo "email"</p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="paneles">
+                        <div class="label__con">
+                            <label for="">Municipio</label>
+                        </div>
+                        <div class="input__con">
+                                <input type="text" formControlName="municipio" placeholder="Municipio"  class="input_pequeños">
+                                <input type="text" formControlName="departamento" placeholder="Departamento" class="input_segundarios input_pequeños">                            
+                        </div>
+                    </div>
+                    <div class="paneles">
+                        <div class="label__con">
+                            <label for="">Fecha de Nacimiento</label>
+                        </div>
+                        <div class="input__con">
+                            <input type="date" formControlName="nacimiento" id="" class="input_pequeños">
+                            <div class="alert-error" *ngIf="nacimiento.invalid && (nacimiento.dirty || nacimiento.touched)">
+                                <div class="error" *ngIf="nacimiento.errors.required"><p>El campo es requerido*</p></div>
+                                <div class="error" *ngIf="nacimiento.errors.minlength"><p>Se Requieren minimo 2 caracteres*</p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container__encabezado">
+                        <div class="encabezado">
+                            <div class="titulo">
+                                <h1>Datos Del Servicio</h1>
+                            </div>
+                            
+                            <div class="linea">
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="paneles">
+                        <div class="label__con">
+                            <label for="">Tipo de consulta</label>
+                        </div>
+                        <div class="input__con">
+                            <input type="text" formControlName="consulta" id="" class="input_pequeños" placeholder="Tipo de consulta">
+                            <div class="alert-error" *ngIf="consulta.invalid && (consulta.dirty || consulta.touched)">
+                                <div class="error" *ngIf="consulta.errors.required"><p>El campo es requerido*</p></div>
+                                <div class="error" *ngIf="consulta.errors.minlength"><p>Se Requieren minimo 2 caracteres*</p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="paneles">
+                        <div class="label__con">
+                            <label for="">Metodo de atencion</label>
+                        </div>
+                        <div class="input__con">
+                            <input type="text" formControlName="atencion" id="" class="input_pequeños" placeholder="Metodo de atencion">
+                        </div>
+                    </div>
+                    <div class="paneles">
+                        <div class="label__con">
+                            <label for="">Contrato</label>
+                        </div>
+                        <div class="input__con">
+                            <input type="text" formControlName="contrato" id="" class="input_pequeños" placeholder="Cod">
+                        </div>
+                    </div>
+                    <div class="paneles">
+                        <div class="label__con">
+                            <label for="">Plantilla</label>
+                        </div>
+                        <div class="input__con">
+                            <input type="text" formControlName="plantilla" id="" class="input_pequeños" placeholder="Plantilla">
+                        </div>
+                    </div>
+                    <div class="paneles">
+                        <div class="label__con">
+                            <label for="">Observaciones</label>
+                        </div>
+                        <textarea formControlName="observaciones" placeholder="Ingrese las observaciones del paciente" id="" class="textarea"></textarea>
+                        <div class="alert-error" *ngIf="observaciones.invalid && (observaciones.dirty || observaciones.touched)">
+                            <div class="error" *ngIf="observaciones.errors.maxlength"><p>No puede exeder los 100 caracteres*</div>
+                        </div>
+                    </div>
+                    <div class="button__con">
+                        <button type="submit" class="button_enviar"  id="boton">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

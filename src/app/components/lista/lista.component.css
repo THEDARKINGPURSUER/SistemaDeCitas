@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400&family=Ubuntu:ital,wght@0,300;1,300;1,700&display=swap');
+.container{
+  max-width: 1085px;
+  margin: 2rem auto;
+  padding: 0;
+  transition: all 400ms;
+
+}
+.titulo_tabla h1{
+  font-family: 'Heebo', sans-serif;
+  font-size: 50px;
+  color: #809fe7;
+  font-weight: 700;
+
+}
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+@media screen and (max-width: 1100px ) {
+    .container{
+        max-width: 772px;
+    }
+
+}
+@media screen and (max-width: 790px ) {
+    .container{
+        max-width: 472px;
+    }
+}
+@media screen and (max-width: 500px ) {
+    .container{
+        max-width: 322px;
+    }
+}
+
+.table-container{
+  max-width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  
+}
+
+table{
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+th{
+  background: #b0bad1;
+  min-width: 152.8px;
+  padding: 0;
+  font-family: 'Heebo', sans-serif;
+}
+td{
+  min-width: 152.8px;
+  padding: 0;
+  font-family: 'Ubuntu', sans-serif;
+  border: 1px solid #c7d0e4;
+}
+td:hover{
+  background-color: #b0bad1;
+}
+.sticky{
+  position: sticky;
+  left: 0;
+}
+.sticky2{
+  background: #b0bad1;
+}
+.conButton{
+  width: 100%;
+  display: flex;
+}
+.botonPrevius, .botonNext{
+  border: none;
+  background-color: #ffffff;
+  border-radius: 0px 0px 5px 5px;
+}
+.botonNext{
+  margin-left: auto;
+  margin-right: 0;
+}
+mat-paginator{
+  background-color: #d1c7c7bb;
+}
+.editarImg{
+  width: 25px;
+  margin: 0px 10px 0px 10px;
+}
